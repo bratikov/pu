@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+if  [ "$TERM" = "linux" ] || [ "$TERM" = "xterm" ] || [ "$TERM" = "xterm-color" ] || [ "$TERM" = "screen" ] && [ "$USE_COLORS" = "1" ]; then
+    GOOD=$'\e[32;01m'
+    WARN=$'\e[33;01m'
+    BAD=$'\e[31;01m'
+    NORMAL=$'\e[0m'
+    HILITE=$'\e[37;01m'
+    BRACKET=$'\e[34;01m'
+else
+    GOOD=$'\e[0;32m'
+    BAD=$'\e[0;31m'
+    NORMAL=$'\e[0m'
+    WARN=$'\e[0;33m'
+    HILITE='\033[1;37m'
+    BRACKET=${NORMAL}
+fi
+
+echo "${WARN}Stopping already started containers...${NORMAL}"
+docker-compose down
+echo "${WARN}Building containers...${NORMAL}"
+echo "docker-compose build"
+docker-compose build
+echo "${WARN}Running containers...${NORMAL}"
+docker-compose up -d
+echo "${WARN}Containers stats...${NORMAL}"
+docker-compose ps
+chmod 777 -R app/in
+chmod 777 -R app/out
+#echo "${WARN}Installing composer deps...${NORMAL}"
+#docker-compose exec cloud-fpm bash -c "php /var/www/html/api/app/composer.phar --working-dir=/var/www/html/api/app install"

@@ -1,0 +1,4 @@
+app/in/*
+app/out/*
+!app/out/.gitkeep
+!app/in/.gitkeep

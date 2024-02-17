@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+  fpm:
+    build: config/fpm
+    container_name: fpm
+    hostname: fpm
+    volumes:
+      - ./app:/var/www/html
+    networks:
+      - net
+    environment:
+      - TZ=Europe/Minsk
+    restart: always
+
+  nginx:
+    build: config/nginx
+    container_name: nginx
+    hostname: nginx
+    volumes:
+      - ./app:/var/www/html
+    environment:
+      - TZ=Europe/Minsk
+    ports:
+      - 127.0.0.1:53080:80
+    networks:
+      - net
+    depends_on:
+      - fpm
+    restart: always
+
+networks:
+  net:
+    driver: bridge

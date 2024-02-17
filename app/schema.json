@@ -1,0 +1,1043 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "/",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "pckagent": {
+            "type": "object",
+            "title": "pckagent",
+            "additionalProperties": false,
+            "properties": {
+                "pckagentinfo": {
+                    "type": "object",
+                    "title": "Сведения о пачке",
+                    "additionalProperties": false,
+                    "required": [
+                        "vunp",
+                        "nmns",
+                        "vexec",
+                        "vphn",
+                        "ngod",
+                        "ntype",
+                        "dcreate"
+                    ],
+                    "properties": {
+                        "vunp": {
+                            "type": "string",
+                            "minLength": 9,
+                            "maxLength": 9,
+                            "title": "УНП"
+                        },
+                        "nmns": {
+                            "type": "integer",
+                            "minimum": 101,
+                            "maximum": 774,
+                            "title": "Код налогового органа по месту постановки на учет налогового агента"
+                        },
+                        "vnaim": {
+                            "type": "string",
+                            "title": "Наименование налогового агента"
+                        },
+                        "ndepno": {
+                            "type": "integer",
+                            "title": "Код подразделения",
+                            "minimum": 0,
+                            "maximum": 9999
+                        },
+                        "nmnsf": {
+                            "type": "integer",
+                            "minimum": 101,
+                            "maximum": 774,
+                            "title": "Код налогового органа по месту осуществления иностранной организацией деятельности на территории Республики Беларусь"
+                        },
+                        "vexec": {
+                            "type": "string",
+                            "title": "Исполнитель"
+                        },
+                        "vphn": {
+                            "type": "string",
+                            "maxLength": 20,
+                            "title": "Контактный телефон"
+                        },
+                        "ngod": {
+                            "type": "integer",
+                            "title": "Год",
+                            "minimum": 2022,
+                            "maximum": 2099
+                        },
+                        "ntype": {
+                            "type": "integer",
+                            "title": "Признак предоставляемых сведений",
+                            "minimum": 1,
+                            "maximum": 3
+                        },
+                        "dcreate": {
+                            "type": "string",
+                            "title": "Дата создания",
+                            "pattern": "^\\d{4}-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01])T(0[0-9]|1[0-9]|2[0-3]):(0[0-9]|[0-5][0-9]):(0[0-9]|[0-5][0-9])$"
+                        }
+                    }
+                },
+                "docagentdiv": {
+                    "type": "array",
+                    "title": "Сведения о дивидендах",
+                    "additionalProperties": false,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "nmonth": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 12,
+                                "title": "Месяц"
+                            },
+                            "nsump": {
+                                "type": "number",
+                                "multipleOf": 0.01,
+                                "title": " Общая сумма прибыли, распределенной в качестве дивидендов "
+                            },
+                            "nsumorgdiv": {
+                                "type": "number",
+                                "multipleOf": 0.01,
+                                "title": "Сумма дивидендов, полученная белорусской организацией, начислившей дивиденды "
+                            }
+                        },
+                        "dependentRequired": {
+                            "nmonth": [
+                                "nsump"
+                            ],
+                            "nsump": [
+                                "nmonth",
+                                "nsumorgdiv"
+                            ],
+                            "nsumorgdiv": [
+                                "nmonth"
+                            ]
+                        }
+                    }
+                },
+                "docagent": {
+                    "type": "array",
+                    "minItems": 1,
+                    "title": "Сведения о доходах",
+                    "uniqueItems": true,
+                    "additionalProperties": false,
+                    "items": {
+                        "type": "object",
+                        "required": [
+                            "ntsumincome",
+                            "ntsumcalcincome",
+                            "ntsumcalcincomediv",
+                            "ntsumwithincome",
+                            "ntsumwithincomediv"
+                        ],
+                        "properties": {
+                            "docagentinfo": {
+                                "type": "object",
+                                "title": "2. Данные физического лица - получателя дохода",
+                                "additionalProperties": false,
+                                "required": [
+                                    "vfam",
+                                    "vname",
+                                    "nrate"
+                                ],
+                                "allOf": [
+                                    {
+                                        "if": {
+                                            "properties": {
+                                                "cvdoc": {
+                                                    "enum": [
+                                                        "01",
+                                                        "09",
+                                                        "11",
+                                                        "12",
+                                                        "13"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "cvdoc"
+                                            ]
+                                        },
+                                        "then": {
+                                            "required": [
+                                                "cln"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "if": {
+                                            "properties": {
+                                                "cstranf": {
+                                                    "enum": [
+                                                        "112"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "cstranf"
+                                            ]
+                                        },
+                                        "then": {
+                                            "required": [
+                                                "cln"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "if": {
+                                            "properties": {
+                                                "cvdoc": {
+                                                    "enum": [
+                                                        "03",
+                                                        "99"
+                                                    ]
+                                                },
+                                                "cstranf": {
+                                                    "not": {
+                                                        "enum": [
+                                                            "112"
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "then": {
+                                            "required": [
+                                                "vpspi"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "if": {
+                                            "properties": {
+                                                "cstranf": {
+                                                    "enum": [
+                                                        "643",
+                                                        "398",
+                                                        "417",
+                                                        "498",
+                                                        "051",
+                                                        "031",
+                                                        "762",
+                                                        "860"
+                                                    ]
+                                                },
+                                                "cvdoc": {
+                                                    "enum": [
+                                                        "03",
+                                                        "99"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "cstranf"
+                                            ]
+                                        },
+                                        "then": {
+                                            "required": [
+                                                "voblf"
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "properties": {
+                                    "vfam": {
+                                        "type": "string",
+                                        "title": "Фамилия"
+                                    },
+                                    "vname": {
+                                        "type": "string",
+                                        "title": "Имя"
+                                    },
+                                    "votch": {
+                                        "type": "string",
+                                        "title": "Отчество"
+                                    },
+                                    "cvdoc": {
+                                        "type": "string",
+                                        "minLength": 2,
+                                        "maxLength": 2,
+                                        "title": "Код документа, удостоверяющего личность"
+                                    },
+                                    "cln": {
+                                        "type": "string",
+                                        "minLength": 14,
+                                        "maxLength": 14,
+                                        "title": "Идентификационный номер",
+                                        "pattern": "^\\d{7}[A-Z]\\d{3}(P|V)(B|A|F)\\d$"
+                                    },
+                                    "vpspi": {
+                                        "type": "string",
+                                        "title": "Серия и номер документа"
+                                    },
+                                    "cstranf": {
+                                        "type": "string",
+                                        "minLength": 3,
+                                        "maxLength": 3,
+                                        "title": "Код страны места жительства "
+                                    },
+                                    "voblf": {
+                                        "type": "string",
+                                        "title": "Регион(область)"
+                                    },
+                                    "vrayonf": {
+                                        "type": "string",
+                                        "title": "Район"
+                                    },
+                                    "vpunktf": {
+                                        "type": "string",
+                                        "title": "Наименование населенного пункта"
+                                    },
+                                    "vstrf": {
+                                        "type": "string",
+                                        "title": "Наименование улицы"
+                                    },
+                                    "vhousef": {
+                                        "type": "string",
+                                        "title": "Дом"
+                                    },
+                                    "vkorpf": {
+                                        "type": "string",
+                                        "title": "Корпус"
+                                    },
+                                    "vkvf": {
+                                        "type": "string",
+                                        "title": "Квартира"
+                                    },
+                                    "inn": {
+                                        "type": "string",
+                                        "title": "Идентификационный код (номер) налогоплательщика, присвоенный ему в государстве гражданства (подданства)"
+                                    },
+                                    "nrate": {
+                                        "type": "integer",
+                                        "minimum": 0,
+                                        "maximum": 99,
+                                        "title": "3.Ставка подоходного налога с физических лиц(%)"
+                                    }
+                                }
+                            },
+                            "tar4": {
+                                "type": "array",
+                                "minItems": 1,
+                                "title": "4 Сведения о начисленных доходах",
+                                "additionalProperties": false,
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "object",
+                                    "required": [
+                                        "nmonth",
+                                        "nsummonth"
+                                    ],
+                                    "properties": {
+                                        "nmonth": {
+                                            "type": "integer",
+                                            "minimum": 1,
+                                            "maximum": 12,
+                                            "title": "Месяц"
+                                        },
+                                        "nsummonth": {
+                                            "type": "number",
+                                            "multipleOf": 0.01,
+                                            "title": "Итоговая сумма за месяц "
+                                        },
+                                        "tar4sum": {
+                                            "type": "array",
+                                            "title": " Сведения о доходах",
+                                            "additionalProperties": false,
+                                            "uniqueItems": true,
+                                            "items": {
+                                                "type": "object",
+                                                "required": [
+                                                    "ncode",
+                                                    "nsum"
+                                                ],
+                                                "properties": {
+                                                    "ncode": {
+                                                        "type": "integer",
+                                                        "title": "Код дохода",
+                                                        "enum": [
+                                                            200,
+                                                            201,
+                                                            202,
+                                                            203,
+                                                            204,
+                                                            205,
+                                                            206,
+                                                            207,
+                                                            208,
+                                                            209,
+                                                            210,
+                                                            211,
+                                                            212,
+                                                            213,
+                                                            214,
+                                                            215,
+                                                            216,
+                                                            217,
+                                                            218,
+                                                            219
+                                                        ]
+                                                    },
+                                                    "nsum": {
+                                                        "type": "number",
+                                                        "multipleOf": 0.01,
+                                                        "title": "Размер дохода"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "tar5": {
+                                "type": "array",
+                                "title": "5.Сведения о доходах, освобождаемых от подоходного налога с физических лиц",
+                                "additionalProperties": false,
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "object",
+                                    "dependentRequired": {
+                                        "nmonth": [
+                                            "nsummonth"
+                                        ],
+                                        "nsummonth": [
+                                            "nmonth"
+                                        ]
+                                    },
+                                    "properties": {
+                                        "nmonth": {
+                                            "type": "integer",
+                                            "minimum": 1,
+                                            "maximum": 12,
+                                            "title": "Месяц"
+                                        },
+                                        "nsummonth": {
+                                            "type": "number",
+                                            "multipleOf": 0.01,
+                                            "title": "Итоговая сумма за месяц "
+                                        },
+                                        "tar5sum": {
+                                            "type": "array",
+                                            "title": " Сведения о доходах",
+                                            "additionalProperties": false,
+                                            "uniqueItems": true,
+                                            "items": {
+                                                "type": "object",
+                                                "dependentRequired": {
+                                                    "ncode": [
+                                                        "nsum"
+                                                    ],
+                                                    "nsum": [
+                                                        "ncode"
+                                                    ]
+                                                },
+                                                "properties": {
+                                                    "ncode": {
+                                                        "type": "integer",
+                                                        "title": "Код дохода",
+                                                        "enum": [
+                                                            500,
+                                                            501,
+                                                            502,
+                                                            503,
+                                                            504,
+                                                            505,
+                                                            506,
+                                                            507,
+                                                            508,
+                                                            509,
+                                                            510,
+                                                            512,
+                                                            513,
+                                                            514,
+                                                            515,
+                                                            516,
+                                                            517,
+                                                            519,
+                                                            520,
+                                                            524,
+                                                            526,
+                                                            527,
+                                                            528,
+                                                            529,
+                                                            530,
+                                                            531,
+                                                            534,
+                                                            535,
+                                                            536,
+                                                            538,
+                                                            539,
+                                                            540,
+                                                            541,
+                                                            542,
+                                                            543,
+                                                            544,
+                                                            545,
+                                                            546,
+                                                            547,
+                                                            548,
+                                                            549,
+                                                            550,
+                                                            551,
+                                                            552,
+                                                            553,
+                                                            554,
+                                                            555,
+                                                            556,
+                                                            557,
+                                                            558,
+                                                            559,
+                                                            560,
+                                                            561
+                                                        ]
+                                                    },
+                                                    "nsum": {
+                                                        "type": "number",
+                                                        "multipleOf": 0.01,
+                                                        "title": "Размер дохода"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "tar6": {
+                                "type": "array",
+                                "title": "6.Сведения о доходах,в отношении которых не производится исчисление подоходного налога с изических лиц",
+                                "additionalProperties": false,
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "object",
+                                    "dependentRequired": {
+                                        "nmonth": [
+                                            "nsummonth"
+                                        ],
+                                        "nsummonth": [
+                                            "nmonth"
+                                        ]
+                                    },
+                                    "properties": {
+                                        "nmonth": {
+                                            "type": "integer",
+                                            "minimum": 1,
+                                            "maximum": 12,
+                                            "title": "Месяц"
+                                        },
+                                        "nsummonth": {
+                                            "type": "number",
+                                            "multipleOf": 0.01,
+                                            "title": "Итоговая сумма за месяц "
+                                        },
+                                        "tar6sum": {
+                                            "type": "array",
+                                            "title": "Сведения о доходах",
+                                            "additionalProperties": false,
+                                            "uniqueItems": true,
+                                            "items": {
+                                                "type": "object",
+                                                "dependentRequired": {
+                                                    "ncode": [
+                                                        "nsum"
+                                                    ],
+                                                    "nsum": [
+                                                        "ncode"
+                                                    ]
+                                                },
+                                                "properties": {
+                                                    "ncode": {
+                                                        "type": "integer",
+                                                        "title": "Код дохода",
+                                                        "enum": [
+                                                            702,
+                                                            703,
+                                                            704
+                                                        ]
+                                                    },
+                                                    "nsum": {
+                                                        "type": "number",
+                                                        "multipleOf": 0.01,
+                                                        "title": "Размер дохода"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "tar7": {
+                                "type": "array",
+                                "title": "7.Стандартные налоговые вычеты",
+                                "additionalProperties": false,
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "object",
+                                    "dependentRequired": {
+                                        "nmonth": [
+                                            "nsummonth"
+                                        ],
+                                        "nsummonth": [
+                                            "nmonth"
+                                        ]
+                                    },
+                                    "properties": {
+                                        "nmonth": {
+                                            "type": "integer",
+                                            "minimum": 1,
+                                            "maximum": 12,
+                                            "title": "Месяц"
+                                        },
+                                        "nsummonth": {
+                                            "type": "number",
+                                            "multipleOf": 0.01,
+                                            "title": "Итоговая сумма за месяц "
+                                        },
+                                        "tar7sum": {
+                                            "type": "array",
+                                            "title": " Сведения о вычетах",
+                                            "additionalProperties": false,
+                                            "uniqueItems": true,
+                                            "items": {
+                                                "type": "object",
+                                                "dependentRequired": {
+                                                    "ncode": [
+                                                        "nsumv"
+                                                    ],
+                                                    "nsumv": [
+                                                        "ncode"
+                                                    ]
+                                                },
+                                                "properties": {
+                                                    "ncode": {
+                                                        "type": "integer",
+                                                        "title": "Код вычета",
+                                                        "enum": [
+                                                            600,
+                                                            610,
+                                                            611,
+                                                            620
+                                                        ]
+                                                    },
+                                                    "nsumv": {
+                                                        "type": "number",
+                                                        "multipleOf": 0.01,
+                                                        "title": "Размер вычета"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "tar8": {
+                                "type": "array",
+                                "title": "8.Социальные налоговые вычеты",
+                                "additionalProperties": false,
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "object",
+                                    "dependentRequired": {
+                                        "nmonth": [
+                                            "nsummonth"
+                                        ],
+                                        "nsummonth": [
+                                            "nmonth"
+                                        ]
+                                    },
+                                    "properties": {
+                                        "nmonth": {
+                                            "type": "integer",
+                                            "minimum": 1,
+                                            "maximum": 12,
+                                            "title": "Месяц"
+                                        },
+                                        "nsummonth": {
+                                            "type": "number",
+                                            "multipleOf": 0.01,
+                                            "title": "Итоговая сумма за месяц "
+                                        },
+                                        "tar8sum": {
+                                            "type": "array",
+                                            "title": " Сведения о вычетах",
+                                            "additionalProperties": false,
+                                            "uniqueItems": true,
+                                            "items": {
+                                                "type": "object",
+                                                "dependentRequired": {
+                                                    "ncode": [
+                                                        "nsumv"
+                                                    ],
+                                                    "nsumv": [
+                                                        "ncode"
+                                                    ]
+                                                },
+                                                "properties": {
+                                                    "ncode": {
+                                                        "type": "integer",
+                                                        "title": "Код вычета",
+                                                        "enum": [
+                                                            630,
+                                                            640,
+                                                            641
+                                                        ]
+                                                    },
+                                                    "nsumv": {
+                                                        "type": "number",
+                                                        "multipleOf": 0.01,
+                                                        "title": "Размер вычета"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "tar9": {
+                                "type": "array",
+                                "title": "9.Имущественные налоговые вычеты",
+                                "additionalProperties": false,
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "object",
+                                    "dependentRequired": {
+                                        "nmonth": [
+                                            "nsummonth"
+                                        ],
+                                        "nsummonth": [
+                                            "nmonth"
+                                        ]
+                                    },
+                                    "properties": {
+                                        "nmonth": {
+                                            "type": "integer",
+                                            "minimum": 1,
+                                            "maximum": 12,
+                                            "title": "Месяц"
+                                        },
+                                        "nsummonth": {
+                                            "type": "number",
+                                            "multipleOf": 0.01,
+                                            "title": "Итоговая сумма за месяц "
+                                        },
+                                        "tar9sum": {
+                                            "type": "array",
+                                            "title": " Сведения о вычетах",
+                                            "additionalProperties": false,
+                                            "uniqueItems": true,
+                                            "items": {
+                                                "type": "object",
+                                                "dependentRequired": {
+                                                    "ncode": [
+                                                        "nsumv"
+                                                    ],
+                                                    "nsumv": [
+                                                        "ncode"
+                                                    ]
+                                                },
+                                                "properties": {
+                                                    "ncode": {
+                                                        "type": "integer",
+                                                        "title": "Код вычета",
+                                                        "enum": [
+                                                            650,
+                                                            660
+                                                        ]
+                                                    },
+                                                    "nsumv": {
+                                                        "type": "number",
+                                                        "multipleOf": 0.01,
+                                                        "title": "Размер вычета"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "tar10": {
+                                "type": "array",
+                                "title": "10.Профессиональные налоговые вычеты",
+                                "additionalProperties": false,
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "object",
+                                    "dependentRequired": {
+                                        "nmonth": [
+                                            "nsummonth"
+                                        ],
+                                        "nsummonth": [
+                                            "nmonth"
+                                        ]
+                                    },
+                                    "properties": {
+                                        "nmonth": {
+                                            "type": "integer",
+                                            "minimum": 1,
+                                            "maximum": 12,
+                                            "title": "Месяц"
+                                        },
+                                        "nsummonth": {
+                                            "type": "number",
+                                            "multipleOf": 0.01,
+                                            "title": "Итоговая сумма за месяц "
+                                        },
+                                        "tar10sum": {
+                                            "type": "array",
+                                            "title": " Сведения о вычетах",
+                                            "additionalProperties": false,
+                                            "uniqueItems": true,
+                                            "items": {
+                                                "type": "object",
+                                                "dependentRequired": {
+                                                    "ncode": [
+                                                        "nsumv"
+                                                    ],
+                                                    "nsumv": [
+                                                        "ncode"
+                                                    ]
+                                                },
+                                                "properties": {
+                                                    "ncode": {
+                                                        "type": "integer",
+                                                        "title": "Код вычета",
+                                                        "enum": [
+                                                            301,
+                                                            302
+                                                        ]
+                                                    },
+                                                    "nsumv": {
+                                                        "type": "number",
+                                                        "multipleOf": 0.01,
+                                                        "title": "Размер вычета"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "tar11": {
+                                "type": "array",
+                                "title": "11.Вычеты (расходы) по операциям с ценными бумагами и финансовыми инструментами срочных сделок, безпоставочными внебиржевыми финансовыми инструментами",
+                                "additionalProperties": false,
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "object",
+                                    "dependentRequired": {
+                                        "ncode": [
+                                            "nsumv"
+                                        ],
+                                        "nsumv": [
+                                            "ncode"
+                                        ]
+                                    },
+                                    "properties": {
+                                        "nmonth": {
+                                            "type": "integer",
+                                            "minimum": 1,
+                                            "maximum": 12,
+                                            "title": "Месяц"
+                                        },
+                                        "ncode": {
+                                            "type": "integer",
+                                            "title": "Код вычета",
+                                            "enum": [
+                                                801,
+                                                802,
+                                                803
+                                            ]
+                                        },
+                                        "nsumv": {
+                                            "type": "number",
+                                            "multipleOf": 0.01,
+                                            "title": "Размер вычета"
+                                        }
+                                    }
+                                }
+                            },
+                            "tar12": {
+                                "type": "array",
+                                "title": "12.Расходы  по доходам, полученным по операциям доверительного управления денежными средствами",
+                                "additionalProperties": false,
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "object",
+                                    "dependentRequired": {
+                                        "ncode": [
+                                            "nsumr"
+                                        ],
+                                        "nsumr": [
+                                            "ncode"
+                                        ]
+                                    },
+                                    "properties": {
+                                        "nmonth": {
+                                            "type": "integer",
+                                            "minimum": 1,
+                                            "maximum": 12,
+                                            "title": "Месяц"
+                                        },
+                                        "ncode": {
+                                            "type": "integer",
+                                            "title": "Код расхода",
+                                            "enum": [
+                                                901
+                                            ]
+                                        },
+                                        "nsumr": {
+                                            "type": "number",
+                                            "multipleOf": 0.01,
+                                            "title": "Размер расхода "
+                                        }
+                                    }
+                                }
+                            },
+                            "tar13": {
+                                "type": "array",
+                                "title": "13.Расходы  по доходам,от участия в фондах банковского управления",
+                                "additionalProperties": false,
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "object",
+                                    "dependentRequired": {
+                                        "ncode": [
+                                            "nsumr"
+                                        ],
+                                        "nsumr": [
+                                            "ncode"
+                                        ]
+                                    },
+                                    "properties": {
+                                        "nmonth": {
+                                            "type": "integer",
+                                            "minimum": 1,
+                                            "maximum": 12,
+                                            "title": "Месяц"
+                                        },
+                                        "ncode": {
+                                            "type": "integer",
+                                            "title": "Код расхода ",
+                                            "enum": [
+                                                1001
+                                            ]
+                                        },
+                                        "nsumr": {
+                                            "type": "number",
+                                            "multipleOf": 0.01,
+                                            "title": "Размер расхода "
+                                        }
+                                    }
+                                }
+                            },
+                            "tar14": {
+                                "type": "array",
+                                "minItems": 1,
+                                "title": "14.Подоходный налог с физических лиц ",
+                                "additionalProperties": false,
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "object",
+                                    "required": [
+                                        "nmonth",
+                                        "nsumt",
+                                        "nsumdiv"
+                                    ],
+                                    "properties": {
+                                        "nmonth": {
+                                            "type": "integer",
+                                            "minimum": 1,
+                                            "maximum": 12,
+                                            "title": "Месяц"
+                                        },
+                                        "nsumt": {
+                                            "type": "number",
+                                            "multipleOf": 0.01,
+                                            "title": "Сумма начисленного подоходного  налога  с физических лиц "
+                                        },
+                                        "nsumdiv": {
+                                            "type": "number",
+                                            "multipleOf": 0.01,
+                                            "title": "Сумма начисленного подоходного  налога с дивидендов "
+                                        }
+                                    }
+                                }
+                            },
+                            "ntsumincome": {
+                                "type": "number",
+                                "multipleOf": 0.01,
+                                "title": "15.1.Общая сумма начисленного дохода за год"
+                            },
+                            "ntsumexemp": {
+                                "type": "number",
+                                "multipleOf": 0.01,
+                                "title": "15.2.Общая сумма доходов, освобождаемых от подоходного  налога с физических лиц"
+                            },
+                            "ntsumnotcalc": {
+                                "type": "number",
+                                "multipleOf": 0.01,
+                                "title": "15.3.Общая сумма доходов, в отношении которых не производится исчисление подоходного  налога с физических лиц за год"
+                            },
+                            "nsumstand": {
+                                "type": "number",
+                                "multipleOf": 0.01,
+                                "title": "15.4.Общая сумма стандартных  налоговых вычетов за год"
+                            },
+                            "ntsumsoc": {
+                                "type": "number",
+                                "multipleOf": 0.01,
+                                "title": "15.5.Общая сумма социальных налоговых вычетов за год"
+                            },
+                            "ntsumprop": {
+                                "type": "number",
+                                "multipleOf": 0.01,
+                                "title": "15.6.Общая сумма имущественных налоговых вычетов за год"
+                            },
+                            "ntsumprof": {
+                                "type": "number",
+                                "multipleOf": 0.01,
+                                "title": "15.7.Общая сумма профессиональных налоговых вычетов за год"
+                            },
+                            "ntsumsec": {
+                                "type": "number",
+                                "multipleOf": 0.01,
+                                "title": "15.8.Общая  сумма  вычетов (расходов)по операциям с ценными бумагами или финансовыми инструментами срочных сделок, беспоставочными внебиржевыми финансовыми инструментами за год"
+                            },
+                            "ntsumtrust": {
+                                "type": "number",
+                                "multipleOf": 0.01,
+                                "title": "15.9.Общая сумма расходов по операциям доверительного управления  денежными средствами"
+                            },
+                            "ntsumbank": {
+                                "type": "number",
+                                "multipleOf": 0.01,
+                                "title": "15.10.Общая суммара сходовот участия в фондах банковского управления"
+                            },
+                            "ntsumcalcincome": {
+                                "type": "number",
+                                "multipleOf": 0.01,
+                                "title": "15.11.Общая сумма исчисленного подоходного налога с физических лиц, в том числе"
+                            },
+                            "ntsumcalcincomediv": {
+                                "type": "number",
+                                "multipleOf": 0.01,
+                                "title": "15.11.1.Общая сумма исчисленного подоходного налога с физических лиц по дивидендам"
+                            },
+                            "ntsumwithincome": {
+                                "type": "number",
+                                "multipleOf": 0.01,
+                                "title": "15.12.Общая сумма удержанного подоходного налога с физических лиц, в том числе"
+                            },
+                            "ntsumwithincomediv": {
+                                "type": "number",
+                                "multipleOf": 0.01,
+                                "title": "15.12.1 Общая сумма исчисленного подоходного налога с физических лиц по дивидендам"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

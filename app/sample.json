@@ -1,0 +1,743 @@
+{
+    "pckagent": {
+        "pckagentinfo": {
+            "dcreate": "2023-06-30T11:39:06",
+            "ndepno": 34,
+            "ngod": 2022,
+            "ntype": 2,
+            "vexec": "Тестисполнитель",
+            "vunp": "191688516",
+            "vphn": "1234567890",
+            "nmns": 111
+        },
+        "docagent": [
+            {
+                "docagentinfo": {
+                    "vfam": "Иванов",
+                    "vname": "Иван",
+                    "votch": "Иванович",
+                    "cvdoc": "01",
+                    "cln": "3111111A011PB1",
+                    "cstranf": "112",
+                    "nrate": 13
+                },
+                "tar4": [
+                    {
+                        "nmonth": 1,
+                        "nsummonth": 1100,
+                        "tar4sum": [
+                            {
+                                "ncode": 200,
+                                "nsum": 100
+                            },
+                            {
+                                "ncode": 206,
+                                "nsum": 1000
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 2,
+                        "nsummonth": 200,
+                        "tar4sum": [
+                            {
+                                "ncode": 201,
+                                "nsum": 200
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 3,
+                        "nsummonth": 300,
+                        "tar4sum": [
+                            {
+                                "ncode": 203,
+                                "nsum": 300
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 4,
+                        "nsummonth": 2500,
+                        "tar4sum": [
+                            {
+                                "ncode": 205,
+                                "nsum": 500
+                            },
+                            {
+                                "ncode": 208,
+                                "nsum": 2000
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 5,
+                        "nsummonth": 1000,
+                        "tar4sum": [
+                            {
+                                "ncode": 207,
+                                "nsum": 1000
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 6,
+                        "nsummonth": 4000,
+                        "tar4sum": [
+                            {
+                                "ncode": 214,
+                                "nsum": 4000
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 7,
+                        "nsummonth": 900,
+                        "tar4sum": [
+                            {
+                                "ncode": 204,
+                                "nsum": 900
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 8,
+                        "nsummonth": 800,
+                        "tar4sum": [
+                            {
+                                "ncode": 204,
+                                "nsum": 800
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 9,
+                        "nsummonth": 700,
+                        "tar4sum": [
+                            {
+                                "ncode": 204,
+                                "nsum": 700
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 10,
+                        "nsummonth": 3000,
+                        "tar4sum": [
+                            {
+                                "ncode": 205,
+                                "nsum": 3000
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 11,
+                        "nsummonth": 2000,
+                        "tar4sum": [
+                            {
+                                "ncode": 211,
+                                "nsum": 2000
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 12,
+                        "nsummonth": 4000,
+                        "tar4sum": [
+                            {
+                                "ncode": 212,
+                                "nsum": 4000
+                            }
+                        ]
+                    }
+                ],
+                "tar5": [
+                    {
+                        "nmonth": 1,
+                        "nsummonth": 100,
+                        "tar5sum": [
+                            {
+                                "ncode": 500,
+                                "nsum": 100
+                            }
+                        ]
+                    }
+                ],
+                "tar6": [
+                    {
+                        "nmonth": 4,
+                        "nsummonth": 400,
+                        "tar6sum": [
+                            {
+                                "ncode": 703,
+                                "nsum": 400
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 5,
+                        "nsummonth": 100,
+                        "tar6sum": [
+                            {
+                                "ncode": 702,
+                                "nsum": 100
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 6,
+                        "nsummonth": 300,
+                        "tar6sum": [
+                            {
+                                "ncode": 704,
+                                "nsum": 300
+                            }
+                        ]
+                    }
+                ],
+                "tar7": [
+                    {
+                        "nmonth": 1,
+                        "nsummonth": 135,
+                        "tar7sum": [
+                            {
+                                "ncode": 600,
+                                "nsumv": 135
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 2,
+                        "nsummonth": 40,
+                        "tar7sum": [
+                            {
+                                "ncode": 610,
+                                "nsumv": 40
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 3,
+                        "nsummonth": 75,
+                        "tar7sum": [
+                            {
+                                "ncode": 611,
+                                "nsumv": 75
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 4,
+                        "nsummonth": 190,
+                        "tar7sum": [
+                            {
+                                "ncode": 620,
+                                "nsumv": 190
+                            }
+                        ]
+                    }
+                ],
+                "tar10": [
+                    {
+                        "nmonth": 7,
+                        "nsummonth": 180,
+                        "tar10sum": [
+                            {
+                                "ncode": 301,
+                                "nsumv": 180
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 8,
+                        "nsummonth": 240,
+                        "tar10sum": [
+                            {
+                                "ncode": 302,
+                                "nsumv": 240
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 9,
+                        "nsummonth": 280,
+                        "tar10sum": [
+                            {
+                                "ncode": 303,
+                                "nsumv": 280
+                            }
+                        ]
+                    }
+                ],
+                "tar11": [
+                    {
+                        "nmonth": 10,
+                        "nsumv": 300,
+                        "ncode": 802
+                    }
+                ],
+                "tar12": [
+                    {
+                        "nmonth": 11,
+                        "nsumr": 1000,
+                        "ncode": 901
+                    }
+                ],
+                "tar13": [
+                    {
+                        "nmonth": 12,
+                        "nsumr": 1000,
+                        "ncode": 1001
+                    }
+                ],
+                "tar14": [
+                    {
+                        "nmonth": 1,
+                        "nsumt": 112.45,
+                        "nsumdiv": 0
+                    },
+                    {
+                        "nmonth": 2,
+                        "nsumt": 20.8,
+                        "nsumdiv": 0
+                    },
+                    {
+                        "nmonth": 3,
+                        "nsumt": 29.25,
+                        "nsumdiv": 27.3
+                    },
+                    {
+                        "nmonth": 4,
+                        "nsumt": 248.3,
+                        "nsumdiv": 0
+                    },
+                    {
+                        "nmonth": 5,
+                        "nsumt": 117,
+                        "nsumdiv": 0
+                    },
+                    {
+                        "nmonth": 6,
+                        "nsumt": 481,
+                        "nsumdiv": 0
+                    },
+                    {
+                        "nmonth": 7,
+                        "nsumt": 93.6,
+                        "nsumdiv": 0
+                    },
+                    {
+                        "nmonth": 8,
+                        "nsumt": 72.8,
+                        "nsumdiv": 0
+                    },
+                    {
+                        "nmonth": 9,
+                        "nsumt": 54.6,
+                        "nsumdiv": 0
+                    },
+                    {
+                        "nmonth": 10,
+                        "nsumt": 351,
+                        "nsumdiv": 0
+                    },
+                    {
+                        "nmonth": 11,
+                        "nsumt": 130,
+                        "nsumdiv": 0
+                    },
+                    {
+                        "nmonth": 12,
+                        "nsumt": 390,
+                        "nsumdiv": 0
+                    }
+                ],
+                "ntsumincome": 20500,
+                "ntsumexemp": 100,
+                "ntsumnotcalc": 800,
+                "nsumstand": 440,
+                "ntsumsoc": 0,
+                "ntsumprop": 0,
+                "ntsumprof": 700,
+                "ntsumsec": 300,
+                "ntsumtrust": 1000,
+                "ntsumbank": 1000,
+                "ntsumcalcincome": 2100.8,
+                "ntsumcalcincomediv": 27.3,
+                "ntsumwithincome": 0,
+                "ntsumwithincomediv": 0
+            },
+            {
+                "docagentinfo": {
+                    "vfam": "Евменов",
+                    "vname": "Виктор",
+                    "votch": "Петрович",
+                    "cvdoc": "03",
+                    "vpspi": "CVV1234567",
+                    "cstranf": "643",
+                    "nrate": 13,
+                    "voblf": "Псковская",
+                    "vrayonf": "Центральный",
+                    "vpunktf": "Псков",
+                    "vstrf": "Ленина",
+                    "vhousef": "99",
+                    "vkorpf": "1",
+                    "vkvf": "235",
+                    "inn": "123456789"
+                },
+                "tar4": [
+                    {
+                        "nmonth": 1,
+                        "nsummonth": 1100,
+                        "tar4sum": [
+                            {
+                                "ncode": 200,
+                                "nsum": 100
+                            },
+                            {
+                                "ncode": 206,
+                                "nsum": 1000
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 2,
+                        "nsummonth": 200,
+                        "tar4sum": [
+                            {
+                                "ncode": 201,
+                                "nsum": 200
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 3,
+                        "nsummonth": 300,
+                        "tar4sum": [
+                            {
+                                "ncode": 203,
+                                "nsum": 300
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 4,
+                        "nsummonth": 2500,
+                        "tar4sum": [
+                            {
+                                "ncode": 205,
+                                "nsum": 500
+                            },
+                            {
+                                "ncode": 208,
+                                "nsum": 2000
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 5,
+                        "nsummonth": 1000,
+                        "tar4sum": [
+                            {
+                                "ncode": 207,
+                                "nsum": 1000
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 6,
+                        "nsummonth": 4000,
+                        "tar4sum": [
+                            {
+                                "ncode": 214,
+                                "nsum": 4000
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 7,
+                        "nsummonth": 900,
+                        "tar4sum": [
+                            {
+                                "ncode": 204,
+                                "nsum": 900
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 8,
+                        "nsummonth": 800,
+                        "tar4sum": [
+                            {
+                                "ncode": 204,
+                                "nsum": 800
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 9,
+                        "nsummonth": 700,
+                        "tar4sum": [
+                            {
+                                "ncode": 204,
+                                "nsum": 700
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 10,
+                        "nsummonth": 3000,
+                        "tar4sum": [
+                            {
+                                "ncode": 205,
+                                "nsum": 3000
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 11,
+                        "nsummonth": 2000,
+                        "tar4sum": [
+                            {
+                                "ncode": 211,
+                                "nsum": 2000
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 12,
+                        "nsummonth": 4000,
+                        "tar4sum": [
+                            {
+                                "ncode": 212,
+                                "nsum": 4000
+                            }
+                        ]
+                    }
+                ],
+                "tar5": [
+                    {
+                        "nmonth": 1,
+                        "nsummonth": 100,
+                        "tar5sum": [
+                            {
+                                "ncode": 500,
+                                "nsum": 100
+                            }
+                        ]
+                    }
+                ],
+                "tar6": [
+                    {
+                        "nmonth": 4,
+                        "nsummonth": 400,
+                        "tar6sum": [
+                            {
+                                "ncode": 703,
+                                "nsum": 400
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 5,
+                        "nsummonth": 100,
+                        "tar6sum": [
+                            {
+                                "ncode": 702,
+                                "nsum": 100
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 6,
+                        "nsummonth": 300,
+                        "tar6sum": [
+                            {
+                                "ncode": 704,
+                                "nsum": 300
+                            }
+                        ]
+                    }
+                ],
+                "tar7": [
+                    {
+                        "nmonth": 1,
+                        "nsummonth": 135,
+                        "tar7sum": [
+                            {
+                                "ncode": 600,
+                                "nsumv": 135
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 2,
+                        "nsummonth": 40,
+                        "tar7sum": [
+                            {
+                                "ncode": 610,
+                                "nsumv": 40
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 3,
+                        "nsummonth": 75,
+                        "tar7sum": [
+                            {
+                                "ncode": 611,
+                                "nsumv": 75
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 4,
+                        "nsummonth": 190,
+                        "tar7sum": [
+                            {
+                                "ncode": 620,
+                                "nsumv": 190
+                            }
+                        ]
+                    }
+                ],
+                "tar10": [
+                    {
+                        "nmonth": 7,
+                        "nsummonth": 180,
+                        "tar10sum": [
+                            {
+                                "ncode": 301,
+                                "nsumv": 180
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 8,
+                        "nsummonth": 240,
+                        "tar10sum": [
+                            {
+                                "ncode": 302,
+                                "nsumv": 240
+                            }
+                        ]
+                    },
+                    {
+                        "nmonth": 9,
+                        "nsummonth": 280,
+                        "tar10sum": [
+                            {
+                                "ncode": 303,
+                                "nsumv": 280
+                            }
+                        ]
+                    }
+                ],
+                "tar11": [
+                    {
+                        "nmonth": 10,
+                        "nsumv": 300,
+                        "ncode": 802
+                    }
+                ],
+                "tar12": [
+                    {
+                        "nmonth": 11,
+                        "nsumr": 1000,
+                        "ncode": 901
+                    }
+                ],
+                "tar13": [
+                    {
+                        "nmonth": 12,
+                        "nsumr": 1000,
+                        "ncode": 1001
+                    }
+                ],
+                "tar14": [
+                    {
+                        "nmonth": 1,
+                        "nsumt": 112.45,
+                        "nsumdiv": 0
+                    },
+                    {
+                        "nmonth": 2,
+                        "nsumt": 20.8,
+                        "nsumdiv": 0
+                    },
+                    {
+                        "nmonth": 3,
+                        "nsumt": 29.25,
+                        "nsumdiv": 27.3
+                    },
+                    {
+                        "nmonth": 4,
+                        "nsumt": 248.3,
+                        "nsumdiv": 0
+                    },
+                    {
+                        "nmonth": 5,
+                        "nsumt": 117,
+                        "nsumdiv": 0
+                    },
+                    {
+                        "nmonth": 6,
+                        "nsumt": 481,
+                        "nsumdiv": 0
+                    },
+                    {
+                        "nmonth": 7,
+                        "nsumt": 93.6,
+                        "nsumdiv": 0
+                    },
+                    {
+                        "nmonth": 8,
+                        "nsumt": 72.8,
+                        "nsumdiv": 0
+                    },
+                    {
+                        "nmonth": 9,
+                        "nsumt": 54.6,
+                        "nsumdiv": 0
+                    },
+                    {
+                        "nmonth": 10,
+                        "nsumt": 351,
+                        "nsumdiv": 0
+                    },
+                    {
+                        "nmonth": 11,
+                        "nsumt": 130,
+                        "nsumdiv": 0
+                    },
+                    {
+                        "nmonth": 12,
+                        "nsumt": 390,
+                        "nsumdiv": 0
+                    }
+                ],
+                "ntsumincome": 20500,
+                "ntsumexemp": 100,
+                "ntsumnotcalc": 800,
+                "nsumstand": 440,
+                "ntsumsoc": 0,
+                "ntsumprop": 0,
+                "ntsumprof": 700,
+                "ntsumsec": 300,
+                "ntsumtrust": 1000,
+                "ntsumbank": 1000,
+                "ntsumcalcincome": 2100.8,
+                "ntsumcalcincomediv": 27.3,
+                "ntsumwithincome": 0,
+                "ntsumwithincomediv": 0
+            }
+        ],
+        "docagentdiv": [
+            {
+                "nmonth": 3,
+                "nsumorgdiv": 100,
+                "nsump": 2000
+            }
+        ]
+    }
+}
