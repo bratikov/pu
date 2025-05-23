@@ -16,15 +16,13 @@ else
 fi
 
 echo "${WARN}Stopping already started containers...${NORMAL}"
-docker-compose down
+docker compose down
 echo "${WARN}Building containers...${NORMAL}"
-echo "docker-compose build"
-docker-compose build
+echo "docker compose build"
+docker compose build
 echo "${WARN}Running containers...${NORMAL}"
-docker-compose up -d
+docker compose up -d
 echo "${WARN}Containers stats...${NORMAL}"
-docker-compose ps
+docker compose ps
 chmod 777 -R app/in
 chmod 777 -R app/out
-#echo "${WARN}Installing composer deps...${NORMAL}"
-#docker-compose exec cloud-fpm bash -c "php /var/www/html/api/app/composer.phar --working-dir=/var/www/html/api/app install"
